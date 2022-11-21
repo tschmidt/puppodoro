@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .dog .tail {
+    left: calc(50% - (theme('width.4') / 2));
+    position: absolute;
+    top: -1.5rem;
+  }
+
+  .dog .head {
+    position: absolute;
+    left: calc(50% - (theme('width.20') / 2));
+    bottom: -1.5rem;
+  }
+
+  .dog .muzzle {
+    position: absolute;
+    left: calc(50% - (theme('width.16') / 2));
+    bottom: -0.5rem;
+  }
+
+  .dog .nose {
+    position: absolute;
+    left: calc(50% - (theme('width.5') / 2));
+    bottom: 10px;
+  }
+
+  .dog .tongue {
+    bottom: -1.25rem;
+    left: calc(50% - (theme('width.6') / 2));
+    position: absolute;
+    transform-origin: center top;
+  }
+
+  .dog .left-eye {
+    position: absolute;
+    left: 20%;
+    top: 45%;
+  }
+
+  .dog .right-eye {
+    position: absolute;
+    right: 20%;
+    top: 45%;
+  }
+
+  .dog .left-ear {
+    position: absolute;
+    left: -1rem;
+    top: -0.5rem;
+  }
+
+  .dog .right-ear {
+    position: absolute;
+    right: -1rem;
+    top: -0.5rem;
+  }
+
+  .dog.animate .left-eye,
+  .dog.animate .right-eye {
+    animation: dog-eyes 7000ms ease-in-out infinite;
+  }
+
+  .dog.animate .tail {
+    animation: dog-tail 200ms ease-in-out infinite alternate;
+  }
+
+  .dog.animate .tongue {
+    animation: dog-tongue 700ms ease-in-out infinite;
+  }
+
+  @keyframes dog-eyes {
+    from, to {
+      animation-timing-function: step-end;
+      opacity: 1;
+    }
+
+    50%, 51% {
+      animation-timing-function: step-start;
+      opacity: 0;
+    }
+  }
+
+  @keyframes dog-tail {
+    from {
+      transform: rotate(-45deg);
+    }
+
+    to {
+      transform: rotate(45deg);
+    }
+  }
+
+  @keyframes dog-tongue {
+    from, to {
+      transform: rotate(0);
+    }
+
+    16% {
+      transform: rotate(30deg);
+    }
+
+    33%, 66% {
+      transform: rotate(0);
+    }
+
+    50%, 83% {
+      transform: rotate(-20deg);
+    }
+  }
+}
